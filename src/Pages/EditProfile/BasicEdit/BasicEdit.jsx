@@ -29,7 +29,6 @@ const EDUCATION_OPTIONS = [
 
 const BasicEdit = () => {
     const data = useBasicData();
-    const userID = user.user.id
     const user = useUser()
     const basicInfo = data.basicData;
 
@@ -54,11 +53,10 @@ const BasicEdit = () => {
                 birth_date: basicInfo.birth_date || '',
                 location: basicInfo.location || '',
                 education_level: basicInfo.education_level || '',
-                current_job: basicInfo.current_job || '',
-                user: userID
+                current_job: basicInfo.current_job || ''
             });
         }
-    }, [basicInfo, userID]);
+    }, [basicInfo]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -71,7 +69,7 @@ const BasicEdit = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://bikroy-server.onrender.com/profile/basic_info/${userID}/`, {
+            const response = await fetch(`https://bikroy-server.onrender.com/profile/basic_info/${user.user.id}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

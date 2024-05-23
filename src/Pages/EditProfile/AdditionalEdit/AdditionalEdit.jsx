@@ -6,7 +6,6 @@ import useUser from "../../../Hooks/useUser";
 
 const AdditionalEdit = () => {
   const user = useUser();
-  const userID = user.user.id
   const data = useAdditionalData();
   const additionalInfo = data.additionalData;
 
@@ -27,11 +26,10 @@ const AdditionalEdit = () => {
         annual_income: additionalInfo.annual_income || "",
         uv_name: additionalInfo.uv_name || "",
         linkedin: additionalInfo.linkedin || "",
-        facebook: additionalInfo.facebook || "",
-        user: userID
+        facebook: additionalInfo.facebook || ""
       });
     }
-  }, [additionalInfo,userID]);
+  }, [additionalInfo]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,7 +43,7 @@ const AdditionalEdit = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://bikroy-server.onrender.com/profile/additional_info/${userID}/`,
+        `https://bikroy-server.onrender.com/profile/additional_info/${user.user.id}/`,
         {
           method: "PUT",
           headers: {

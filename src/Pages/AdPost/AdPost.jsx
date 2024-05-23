@@ -25,7 +25,7 @@ const LOCATIONS_CHOICES = [
 ];
 
 const AdPost = () => {
-  const userId = localStorage.getItem("id");
+  // const userId = localStorage.getItem("id");
   const user = useUser()
   const navigate = useNavigate()
 
@@ -41,7 +41,7 @@ const AdPost = () => {
     const negotiable = form.negotiable.checked || false;
     const contact = form.contact.value || "";
     const location = form.location.value || null;
-    const author = userId;
+    const author = user.user.id;
 
     // Prepare the request body with default values
     const requestBody = {
