@@ -60,3 +60,10 @@
     width: 78%;
     padding-bottom: 10px;
 }
+
+.logout-button{
+    background-color: rgb(255, 64, 64);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
