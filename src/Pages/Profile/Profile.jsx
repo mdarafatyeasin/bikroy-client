@@ -30,6 +30,10 @@ const Profile = () => {
       });
   };
 
+  if(!user.user){
+    navigate("/login");
+  }
+
   if (user.loading || logoutLoading) {
     return <Loader />;
   }

@@ -41,7 +41,7 @@ const Login = () => {
         localStorage.setItem("id", data.user.id);
         localStorage.setItem("username", data.user.username);
         usenavigete("/");
-
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

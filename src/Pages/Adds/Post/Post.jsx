@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Post.css";
 
 const Post = (product) => {
-  console.log(product);
+  // console.log(product);
   return (
     <div className="post-container">
       <div className="product-img">

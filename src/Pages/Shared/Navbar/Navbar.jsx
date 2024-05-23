@@ -13,7 +13,7 @@ const Navbar = () => {
   const [isMobile, setisMobile] = useState(true);
   const data = useUser();
   const user = data.user;
-  console.log(user);
+  // console.log(user);
   if (data.loading) {
     return <Loader />;
   }

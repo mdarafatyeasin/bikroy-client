@@ -1,11 +1,14 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import './DetailPost.css'
+import useUser from "../../../Hooks/useUser";
 
 const DetailPost = () => {
+  const user = useUser()
   const [singleProduct, setSingleProduct] = useState({});
 
   const { id } = useParams();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const url = `http://127.0.0.1:8000/adds/product/${id}/`;
@@ -15,6 +18,10 @@ const DetailPost = () => {
         setSingleProduct(data);
       });
   }, [id]);
+
+  if(!user.user){
+    navigate("/login");
+  }
 
   return (
     <div className="detail-container">

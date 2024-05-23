@@ -1,4 +1,6 @@
 import axios from "axios";
+import useUser from '../../Hooks/useUser'
+import { useNavigate } from "react-router-dom";
 
 // Define the choices for dropdown/select fields
 const CONDITION_CHOICES = [
@@ -24,6 +26,8 @@ const LOCATIONS_CHOICES = [
 
 const AdPost = () => {
   const userId = localStorage.getItem("id");
+  const user = useUser()
+  const navigate = useNavigate()
 
   const handleAd = async (event) => {
     event.preventDefault();
@@ -70,6 +74,10 @@ const AdPost = () => {
       // console.log(error);
     }
   };
+
+  if(!user.user){
+    navigate("/login");
+  }
 
   return (
     <div>

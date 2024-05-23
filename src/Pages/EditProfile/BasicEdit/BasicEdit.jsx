@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import useBasicData from "../../../Hooks/useBasicData";
 import Loader from "../../Shared/Loader/Loader";
+import useUser from "../../../Hooks/useUser";
+import { useNavigate } from "react-router-dom";
 
 const GENDER_OPTIONS = [
     { label: 'Male', value: 'Male' },
@@ -27,7 +29,10 @@ const EDUCATION_OPTIONS = [
 
 const BasicEdit = () => {
     const data = useBasicData();
+    const user = useUser()
     const basicInfo = data.basicData;
+
+    const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         phone_number: '',
@@ -37,6 +42,8 @@ const BasicEdit = () => {
         education_level: '',
         current_job: ''
     });
+
+    // console.log(user)
 
     useEffect(() => {
         if (basicInfo) {
@@ -63,7 +70,7 @@ const BasicEdit = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://127.0.0.1:8000/profile/basic_info/1/', {
+            const response = await fetch(`http://127.0.0.1:8000/profile/basic_info/${user.user.id}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -84,7 +91,11 @@ const BasicEdit = () => {
         return <Loader />;
     }
 
-    console.log(formData)
+    if(!user.user){
+        navigate("/login");
+      }
+
+    // console.log(formData)
 
     return (
         <div>
