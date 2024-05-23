@@ -1,0 +1,39 @@
+.post-container {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    width: 50%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.post-container .product-img{
+    width: 200px;
+}
+
+.post-container .post-content{
+    width: 100%;
+    padding-left: 5%;
+}
+
+.post-container .post-content h1{
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.post-container .post-content p{
+    color: rgb(136, 136, 136);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.post-container .post-content h3{
+    color: rgb(0, 102, 0);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+

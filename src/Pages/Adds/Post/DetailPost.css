@@ -1,0 +1,41 @@
+.detail-container {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9; /* Light gray background color */
+}
+
+.product-img img {
+    width: 600px;
+    border-radius: 5px;
+}
+
+.post-content {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.post-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333; /* Dark gray text color */
+}
+
+.post-content p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555; /* Medium gray text color */
+}
+
+.post-content p:last-child {
+    margin-bottom: 0;
+}
+
+.post-content p::before {
+    content: attr(title);
+    font-weight: bold;
+    margin-right: 5px;
+    color: #888; /* Light gray text color */
+}
