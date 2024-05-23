@@ -70,7 +70,7 @@ const BasicEdit = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://127.0.0.1:8000/profile/basic_info/${user.user.id}/`, {
+            const response = await fetch(`https://bikroy-server.onrender.com/profile/basic_info/${user.user.id}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,8 +80,9 @@ const BasicEdit = () => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            const updatedBasicInfo = await response.json();
-            console.log('Basic information updated successfully:', updatedBasicInfo);
+            // const updatedBasicInfo = await response.json();
+            // console.log('Basic information updated successfully:', updatedBasicInfo);
+            navigate("/profile-info")
         } catch (error) {
             console.error('Error updating basic information:', error);
         }

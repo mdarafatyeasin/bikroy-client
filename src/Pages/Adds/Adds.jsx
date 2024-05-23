@@ -8,7 +8,7 @@ const Adds = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://127.0.0.1:8000/adds/product/')
+        fetch('https://bikroy-server.onrender.com/adds/product/')
             .then(response => response.json())
             .then(data => {
                 setProducts(data)

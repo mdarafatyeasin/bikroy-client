@@ -44,7 +44,7 @@ const AdditionalEdit = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://bikroy-server.onrender.com/profile/additional_info/1/",
+        `https://bikroy-server.onrender.com/profile/additional_info/${user.user.id}/`,
         {
           method: "PUT",
           headers: {
@@ -56,9 +56,9 @@ const AdditionalEdit = () => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      const updatedBasicInfo = await response.json();
+      // const updatedBasicInfo = await response.json();
       usenavigete("/profile-info");
-      console.log("Basic information updated successfully:", updatedBasicInfo);
+      // console.log("Basic information updated successfully:", updatedBasicInfo);
     } catch (error) {
       console.error("Error updating basic information:", error);
     }

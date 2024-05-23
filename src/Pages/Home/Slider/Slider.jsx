@@ -4,7 +4,7 @@ const Slider = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/adds/product/')
+        fetch('https://bikroy-server.onrender.com/adds/product/')
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching data:', error));

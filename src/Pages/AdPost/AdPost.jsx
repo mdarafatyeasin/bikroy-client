@@ -60,7 +60,7 @@ const AdPost = () => {
     // Send a POST request
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/adds/product/",
+        "https://bikroy-server.onrender.com/adds/product/",
         requestBody
       );
       if (response.status === 201) {

@@ -35,7 +35,7 @@ const UserEdit = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/profile/user_profile/1/",
+        `https://bikroy-server.onrender.com/profile/user_profile/${userInfo.id}/`,
         {
           method: "PUT",
           headers: {

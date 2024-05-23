@@ -11,7 +11,7 @@ const DetailPost = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const url = `http://127.0.0.1:8000/adds/product/${id}/`;
+    const url = `https://bikroy-server.onrender.com/adds/product/${id}/`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
