@@ -1,6 +1,7 @@
 import axios from "axios";
 import useUser from '../../Hooks/useUser'
 import { useNavigate } from "react-router-dom";
+import "./AdPost.css"; // Import custom CSS file
 
 // Define the choices for dropdown/select fields
 const CONDITION_CHOICES = [
@@ -41,7 +42,9 @@ const AdPost = () => {
     const negotiable = form.negotiable.checked || false;
     const contact = form.contact.value || "";
     const location = form.location.value || null;
+    const picture = form.picture.value || ""; // Add picture field
     const author = user.user.id;
+    
 
     // Prepare the request body with default values
     const requestBody = {
@@ -54,7 +57,8 @@ const AdPost = () => {
       negotiable: negotiable,
       contact: contact,
       location: location,
-      author: author,
+      picture: picture, // Include picture in the request body
+      author: author
     };
 
     // Send a POST request
@@ -80,8 +84,8 @@ const AdPost = () => {
   }
 
   return (
-    <div>
-      <h1>This is ad post</h1>
+    <div className="container">
+      <h1 className="text-center mt-4 mb-5">Create New Ad</h1>
       <form onSubmit={handleAd} className="create-ad-form">
         {/* Existing fields */}
         <div className="form-group">
@@ -162,6 +166,16 @@ const AdPost = () => {
             />
           </label>
         </div>
+
+        <div className="form-group">
+          <input
+            type="url"
+            name="picture"
+            placeholder="Picture URL"
+            className="form-control"
+          />
+        </div>
+        
         <div className="form-group">
           <input
             type="text"
@@ -172,7 +186,7 @@ const AdPost = () => {
         </div>
         {/* End of additional fields */}
         {/* Existing fields */}
-        <div className="form-group">
+        <div className="form-group text-center">
           <button type="submit" className="btn btn-primary">
             Create Ad
           </button>
